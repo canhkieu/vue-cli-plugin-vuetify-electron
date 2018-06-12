@@ -1,39 +1,20 @@
 {
-  "name": "vue-cli-plugin-vuetify-electron",
-  "version": "0.0.1",
-  "description": "Electron plugin for vue-cli-3",
   "main": "index.js",
-  "scripts": {
-    "release": "standard-version"
+  "version": "0.0.3",
+  "author": {
+    "name": "Canh Kieu"
   },
+  "description": "Electron plugin for vue-cli-3",
+  "homepage": "https://github.com/canhkieu/vue-cli-plugin-vuetify-electron#readme",
+  "keywords": [
+    "Electron",
+    "Vue electron",
+    "vuetify electron"
+  ],
+  "license": "MIT",
+  "name": "vue-cli-plugin-vuetify-electron",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/canhkieu/vue-cli-plugin-vuetify-electron.git"
-  },
-  "keywords": [
-    "Electron",
-    "vue-cli-3",
-    "vue",
-    "plugin",
-    "electron",
-    "vue",
-    "add",
-    "electron"
-  ],
-  "author": "Canh Kieu",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/canhkieu/vue-cli-plugin-vuetify-electron/issues"
-  },
-  "homepage": "https://github.com/canhkieu/vue-cli-plugin-vuetify-electron#readme",
-  "dependencies": {
-    "@vue/cli-shared-utils": "^3.0.0-beta.12",
-    "address": "^1.0.3",
-    "ejs": "^2.6.1",
-    "html-webpack-include-assets-plugin": "^1.0.4",
-    "portfinder": "^1.0.13"
-  },
-  "devDependencies": {    
-    "standard-version": "^4.4.0"
   }
 }
