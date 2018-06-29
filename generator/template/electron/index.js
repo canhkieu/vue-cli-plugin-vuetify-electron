@@ -15,20 +15,20 @@ function createWindow() {
   });
 
   // và tải trang index.html của ứng dụng lên.
-  if (process.env.NODE_ENV === "dev") {
-    win.loadURL("http://localhost:8080");
+  if (process.env.NODE_ENV === "development") {
+    let port = process.env.PORT || "8080";
+    console.log(`http://localhost:${port}`);
+    win.loadURL(`http://localhost:${port}`);
 
     // Open the DevTools && Vue-Devtools
     win.webContents.openDevTools();
-    let installExtension = require("electron-devtools-installer");
-    installExtension
-      .default(installExtension.VUEJS_DEVTOOLS)
-      .then(() => {
-        console.log("`Vue-Devtools` installed");
-      })
-      .catch(err => {
-        console.error("Can not install `vue-devtools`: \n", err);
-      });
+    const {
+      default: installExtension,
+      VUEJS_DEVTOOLS
+    } = require("electron-devtools-installer");
+    installExtension(VUEJS_DEVTOOLS)
+      .then(name => console.log(`Added Extension:  ${name}`))
+      .catch(err => console.log("An error occurred: ", err));
   } else {
     win.loadFile("./dist/index.html");
   }
@@ -40,9 +40,6 @@ function createWindow() {
     // when you should delete the corresponding element.
     win = null;
   });
-
-  if (process.env.NODE_ENV === "dev") {
-  }
 }
 
 // Phương thức này sẽ được gọi ra khi Electron hoàn thành

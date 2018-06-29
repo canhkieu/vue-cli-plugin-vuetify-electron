@@ -1,5 +1,5 @@
 const { info } = require("@vue/cli-shared-utils");
-const { spawn } = require("child_process");
+const spawn = require("cross-spawn");
 
 const defaults = {
   mode: "development",
@@ -44,7 +44,7 @@ module.exports = (api, options) => {
           lanIp: address.ip()
         };
         return api.service.run("serve", serveArgs).then(result => {
-          info("Begin build electron");
+          info("Electron start building...");
           let cordovaProcess = spawn("npm", ["run", "electron"]);
 
           cordovaProcess.stdout.on("data", data => {
@@ -62,6 +62,37 @@ module.exports = (api, options) => {
       });
     }
   );
+  api.registerCommand(
+    "electron-prod",
+    {
+      description: "start production server for electron",
+      usage: "vue-cli-service electron-prod [options]",
+      options: {
+        "--open": `open browser on server start`,
+        "--host": `specify host (default: ${defaults.host})`,
+        "--port": `specify port (default: ${defaults.port})`,
+        "--https": `use https (default: ${defaults.https})`
+      }
+    },
+    args => {
+      return api.service.run("build", options).then(result => {
+        info("Begin build electron production");
+        let cordovaProcess = spawn("npm", ["run", "electron-builder"]);
+
+        cordovaProcess.stdout.on("data", data => {
+          console.log(`Electron: ${data}`);
+        });
+
+        cordovaProcess.stderr.on("data", data => {
+          console.log(`Electron: ${data}`);
+        });
+
+        cordovaProcess.on("close", code => {
+          info(`Finish. Electron exited with code ${code}`);
+        });
+      });
+    }
+  );
 
   api.configureWebpack(config => {
     config.output.publicPath =
@@ -70,5 +101,6 @@ module.exports = (api, options) => {
 };
 
 module.exports.defaultModes = {
-  "electron-serve": "development"
+  "electron-serve": "development",
+  "electron-prod": "production"
 };

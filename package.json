@@ -1,8 +1,12 @@
 {
   "main": "index.js",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "author": {
-    "name": "Canh Kieu"
+    "name": "Canh Kieu",
+    "email": "minhcanhdn0704@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/canhkieu/vue-cli-plugin-vuetify-electron/issues"
   },
   "description": "Electron plugin for vue-cli-3",
   "homepage": "https://github.com/canhkieu/vue-cli-plugin-vuetify-electron#readme",

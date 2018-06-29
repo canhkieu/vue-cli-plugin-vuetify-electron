@@ -6,19 +6,20 @@ vue create vuetify-electron
 
 # Run
 
-Run serve dev
+## Run dev
 
 ```
-npm run electron-serve
+npm run dev
 ```
 
-Build production
+## Build production
 
-```
-npm run build
-npm run electron-build
+```sh
+$ npm run build
+$ npm run electron-builder # Update package.json setting to create app.
+$ npm run prod
 ```
 
 ## See more
 
-- https://github.com/electron-userland/electron-packager
+- https://www.electron.build
