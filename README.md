@@ -1,7 +1,7 @@
 # Setup
 
 ```
-vue create vuetify-electron
+vue add vuetify-electron
 ```
 
 # Run
