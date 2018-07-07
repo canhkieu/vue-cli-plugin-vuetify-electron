@@ -39,13 +39,7 @@ module.exports = (api, options, rootOptions) => {
       directories: {
         output: "build"
       },
-      files: [
-        "**/*",
-        "build/icon.*",
-        "icon.*",
-        "icons/icon.*",
-        "build/icons/icon.*"
-      ],
+      files: ["dist/**/*", "electron/*", "build/icons/icon.*"],
       mac: {
         icon: "build/icons/icon.icns"
       },
