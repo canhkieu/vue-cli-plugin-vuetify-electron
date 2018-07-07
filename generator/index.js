@@ -4,13 +4,14 @@ module.exports = (api, options, rootOptions) => {
       dev: "npm run electron-serve",
       prod: "npm run electron-prod",
       electron: "electron .",
+      "electron-builder": "electron-builder",
       "electron-serve": "vue-cli-service electron-serve",
       "electron-prod": "vue-cli-service electron-prod"
     },
     devDependencies: {
       electron: "^2.0.2",
       "electron-devtools-installer": "^2.2.4",
-      "electron-packager": "^12.1.0"
+      "electron-builder": "^20.18.0"
     },
     main: "./electron/index.js",
     author: {
